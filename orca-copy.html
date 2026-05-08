@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vancouver Property Management for Landlords | Orca Realty</title>
+  <meta name="description" content="Full-service property management across Vancouver and the Lower Mainland. Higher rents, rigorous tenant screening, and 10+ years of local expertise. Get your free rental evaluation today." />
+
+  <style>
+    /* ── Reset & Base ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #222;
+      background: #fff;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout ───────────────────────────────────────── */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 72px 0; }
+    .section--alt { background: #f7f9fc; }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .two-col--reverse { direction: rtl; }
+    .two-col--reverse > * { direction: ltr; }
+
+    /* ── Typography ───────────────────────────────────── */
+    .eyebrow {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #0077cc;
+      margin-bottom: 12px;
+    }
+    h1 { font-size: clamp(28px, 4vw, 46px); font-weight: 800; line-height: 1.15; margin-bottom: 20px; color: #111; }
+    h2 { font-size: clamp(22px, 3vw, 36px); font-weight: 700; line-height: 1.2; margin-bottom: 16px; color: #111; }
+    .subhead { font-size: 17px; font-weight: 600; color: #444; margin-bottom: 16px; }
+    p { margin-bottom: 16px; color: #444; }
+    p:last-child { margin-bottom: 0; }
+    b { color: #111; }
+
+    /* ── Buttons ──────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      cursor: pointer;
+      transition: opacity .2s;
+      margin-top: 24px;
+    }
+    .btn:hover { opacity: .85; }
+    .btn--primary { background: #0077cc; color: #fff; }
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, #0a1628 0%, #0d2545 100%);
+      color: #fff;
+      padding: 96px 0;
+    }
+    .hero h1 { color: #fff; }
+    .hero p { color: #c8d9ee; font-size: 18px; }
+    .hero .btn--primary { background: #fff; color: #0a1628; }
+
+    /* ── Divider ──────────────────────────────────────── */
+    .divider { border: none; border-top: 1px solid #e5e9f0; margin: 0; }
+
+    /* ── FAQ Accordion ────────────────────────────────── */
+    .faq-section { background: #f7f9fc; }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .faq-header h2 { margin-bottom: 10px; }
+    .faq-header p {
+      color: #666;
+      font-size: 17px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .faq-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 48px;
+      margin-top: 48px;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #dde3ed;
+    }
+    .accordion-item:first-child {
+      border-top: 1px solid #dde3ed;
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 4px;
+      cursor: pointer;
+      text-align: left;
+      gap: 12px;
+    }
+    .accordion-trigger:hover { background: rgba(0,119,204,0.04); }
+
+    .accordion-question {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.4;
+    }
+
+    .accordion-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #0077cc;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: transform .25s, background .2s;
+    }
+    .accordion-item.open .accordion-icon {
+      background: #005fa3;
+      transform: rotate(45deg);
+    }
+
+    .accordion-body {
+      display: none;
+      padding: 4px 4px 20px 4px;
+      color: #555;
+      font-size: 14.5px;
+      line-height: 1.7;
+    }
+    .accordion-item.open .accordion-body { display: block; }
+
+    .accordion-body ul {
+      padding-left: 18px;
+      margin-top: 8px;
+    }
+    .accordion-body li {
+      margin-bottom: 5px;
+    }
+
+    .faq-cta {
+      text-align: center;
+      margin-top: 52px;
+    }
+    .faq-cta p {
+      color: #555;
+      margin-bottom: 0;
+    }
+
+    /* ── Responsive ───────────────────────────────────── */
+    @media (max-width: 768px) {
+      .two-col, .two-col--reverse, .faq-columns {
+        grid-template-columns: 1fr;
+        direction: ltr;
+      }
+      .section { padding: 48px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     SECTION 1 — HERO
+============================================================ -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Vancouver's Trusted Property Management Company</span>
+    <h1>Vancouver Property Management That Maximizes Your Rental Income</h1>
+    <p>Full-service property management across Vancouver and the Lower Mainland: higher rents, qualified tenants, and none of the landlord stress.</p>
+    <a class="btn btn--primary" href="https://app.orcarealty.ca/newbiz-organic" target="_blank">Get Your Free Rental Evaluation</a>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ============================================================
+     SECTION 2 — WHY CHOOSE ORCA REALTY
+============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="two-col">
+
+      <div>
+        <iframe
+          width="100%"
+          height="340"
+          src="https://www.youtube.com/embed/bTP0PO9ryJM?autoplay=1&mute=1"
+          title="Why Vancouver Landlords Choose Orca Realty"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div>
+        <h2>Why Vancouver Landlords Choose Orca Realty</h2>
+        <p>10+ years. Thousands of properties. Higher rents, lower vacancy, and full BC Residential Tenancy Act compliance, handled by licensed property managers who treat your investment like their own.</p>
+        <a class="btn btn--primary" href="https://app.orcarealty.ca/newbiz-organic" target="_blank">Get Your Free Rental Evaluation</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ============================================================
+     SECTION 3 — GOLD STANDARD
+============================================================ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="two-col">
+
+      <div>
+        <h2>The Gold Standard in Lower Mainland Property Management</h2>
+        <p class="subhead">Proven Results. Premium Service. No Surprises.</p>
+        <p>Professional 3D tours, rigorous tenant screening, and proactive management, built on 10+ years of Vancouver landlord trust.</p>
+        <a class="btn btn--primary" href="https://app.orcarealty.ca/newbiz-organic" target="_blank">Get Your Free Rental Evaluation</a>
+      </div>
+
+      <div>
+        <img
+          src="Vancouver Property Management for Landlords _ Orca Realty_files/westside-vancouver-rental-company.jpg"
+          alt="Orca Realty property management sign in Vancouver, BC"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ============================================================
+     SECTION 4 — HOW IT WORKS
+============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="two-col two-col--reverse">
+
+      <div>
+        <img
+          src="Vancouver Property Management for Landlords _ Orca Realty_files/pexels-a-darmel-7641899-1-1536x1024-2-1024x683.jpg"
+          alt="Real estate agent handing keys to happy couple, Orca Realty Vancouver property management"
+        />
+      </div>
+
+      <div>
+        <h2>How Our Vancouver Property Management Process Works</h2>
+        <p class="subhead">From your free rental evaluation to monthly owner deposits. We manage every detail.</p>
+        <p>Free evaluation &rarr; professional photography &amp; 3D tour &rarr; rigorous tenant screening &rarr; full ongoing management with 24/7 owner access to statements.</p>
+        <p>You earn rental income. We handle everything else.</p>
+        <a class="btn btn--primary" href="https://app.orcarealty.ca/newbiz-organic" target="_blank">FREE RENTAL EVALUATION</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ============================================================
+     SECTION 5 — SELF-MANAGEMENT COST
+============================================================ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="two-col">
+
+      <div>
+        <h2>Is Self-Managing Your Vancouver Rental Property Worth It?</h2>
+        <p class="subhead">A straight-talk breakdown from Petr Vokoun, Owner of Orca Realty</p>
+        <p>The math often surprises landlords. In Canada, management fees are fully tax-deductible, making professional management more affordable than most owners expect.</p>
+        <a class="btn btn--primary" href="https://app.orcarealty.ca/newbiz" target="_blank">Get Your Free Rental Evaluation</a>
+      </div>
+
+      <div>
+        <iframe
+          width="100%"
+          height="340"
+          src="about:blank"
+          title="Self-management vs professional property management Vancouver"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ============================================================
+     SECTION 6 — TAX-DEDUCTIBLE FEES
+============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="two-col two-col--reverse">
+
+      <div>
+        <img
+          src="Vancouver Property Management for Landlords _ Orca Realty_files/person-signing-legal-document.jpg"
+          alt="Person signing rental property management agreement in Vancouver"
+        />
+      </div>
+
+      <div>
+        <h2>Property Management Fees Are 100% Tax Deductible in Canada</h2>
+        <p>Our fees are <b>100% tax deductible under CRA guidelines</b>, reducing your taxable rental income and improving your net return. Monthly statements and downloadable records included.</p>
+        <a class="btn btn--primary" href="https://app.orcarealty.ca/newbiz-organic" target="_blank">Get Your Free Rental Evaluation</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ============================================================
+     SECTION 7 — FAQ ACCORDION
+============================================================ -->
+<section class="section faq-section">
+  <div class="container">
+
+    <div class="faq-header">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything Vancouver landlords ask before getting started.</p>
+    </div>
+
+    <div class="faq-columns">
+
+      <!-- Column 1 -->
+      <div>
+
+        <div class="accordion-item open">
+          <button class="accordion-trigger" aria-expanded="true">
+            <span class="accordion-question">What are your management fees?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>Full management is <b>7% + GST</b> plus half a month's rent to place a tenant (residents). Non-residents are charged 10%.</p>
+            <p>Tenant Placement only: half a month's rent + GST (minimum $1,500).</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span class="accordion-question">Do you work with Non-Resident owners?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>Yes. We handle all CRA non-resident withholding requirements so you don't have to.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span class="accordion-question">How do you screen tenants?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>Our multi-step process covers:</p>
+            <ul>
+              <li>Present and past landlord references</li>
+              <li>Employment and salary verification</li>
+              <li>Social media verification</li>
+              <li>Corporate ID software verification</li>
+              <li>Full Equifax credit report with rent-to-income ratio</li>
+              <li>BC Criminal Court checks</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span class="accordion-question">Is tenant insurance required?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>Yes. Our Residential Tenancy Agreement (page 3, section 11) makes tenant insurance mandatory for every tenant, protecting your property from day one.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span class="accordion-question">How do you set the rental price?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>We conduct a free market evaluation factoring in location, square footage, amenities, property condition, transit access, nearby schools, and live comparable listings to find your optimal rental rate.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Column 2 -->
+      <div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span class="accordion-question">How is rent collected?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>Tenants are enrolled in a secure direct deposit system. Rent is pulled automatically on the 1st of each month. We collect all provincially allowable pet and security deposits.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span class="accordion-question">When do I receive my owner payment?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>Owner payments are issued on the <b>15th of every month</b>, with a detailed statement included.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span class="accordion-question">Do I pay fees when the property is vacant?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>No. You are not charged a management fee during any vacant period. We move quickly to fill your property with a qualified tenant.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span class="accordion-question">How do you market my rental?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>Our in-house photographer delivers professional photos and a Matterport 3D virtual tour. We advertise on our own high-traffic website, top rental platforms, all social media channels, and through Vancouver's leading corporate relocation networks.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span class="accordion-question">How are repairs and emergencies handled?</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <p>We provide <b>24/7 emergency response</b>. After informing you and getting authorization, we coordinate with tenants and trusted contractors to complete repairs promptly, to a high standard, and in full compliance with BC safety requirements.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /.faq-columns -->
+
+    <div class="faq-cta">
+      <p>Still have questions? We are happy to help.</p>
+      <a class="btn btn--primary" href="https://app.orcarealty.ca/newbiz-organic" target="_blank">Get Your Free Rental Evaluation</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     ACCORDION SCRIPT
+============================================================ -->
+<script>
+  document.querySelectorAll('.accordion-trigger').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.closest('.accordion-item');
+      var isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.accordion-item').forEach(function(el) {
+        el.classList.remove('open');
+        el.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle clicked
+      if (!isOpen) {
+        item.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
